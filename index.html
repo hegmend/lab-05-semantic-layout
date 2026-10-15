@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Жива мікрозелень від Microgreen — під ваш щоденний раціон і графік.">
+  <title>Microgreen — жива мікрозелень за підпискою</title>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:title" content="Microgreen — жива мікрозелень за підпискою">
+  <meta property="og:description" content="Розрахуйте свою норму, оберіть свіжий набір і керуйте регулярною доставкою мікрозелені.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap&subset=cyrillic" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <!-- Контейнер і група дій суто компонувальні; окремої HTML-семантики не мають. -->
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <img class="brand-mark" src="assets/images/logo.svg" alt="Microgreen" width="628" height="80">
+      </a>
+
+      <nav class="main-nav" aria-label="Головна навігація">
+        <ul>
+          <li><a href="#sets">Каталог</a></li>
+          <li><a href="#farm">Про ферму</a></li>
+          <li><a href="#knowledge">База знань</a></li>
+          <li><a href="#business">Для бізнесу</a></li>
+          <li><a href="#footer">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="account-link" href="#footer">Особистий кабінет</a>
+        <a class="button button-primary button-small" href="#calculator">Розрахувати норму</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Залишені div — лише компонувальні групи: контейнерні/layout-обгортки, групи контролів і тексту, та контейнери карток без окремої семантики. batch-row об'єднує dt/dd у дозволену групу dl; placeholder-и малюють декор і приховані від скрінрідерів. -->
+    <!-- Hero є тематичною секцією; h1 називає її для навігації та пошуку. -->
+    <section class="hero-section" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <header class="hero-copy">
+          <p class="eyebrow">Міська вертикальна ферма</p>
+          <h1 id="hero-title">Жива мікрозелень у вашому щоденному раціоні</h1>
+          <p class="hero-description">Вирощуємо лотки під ваше замовлення й доставляємо за підпискою. Розрахуйте свою норму, оберіть склад та змінюйте графік: пауза, пропуск або заміна.</p>
+          <div class="button-row">
+            <a class="button button-primary" href="#calculator">Розрахувати мою норму</a>
+            <a class="button button-outline-light" href="#sets">Переглянути набори</a>
+          </div>
+          <p class="hero-note">Для активного життя, родини та вашого закладу.</p>
+        </header>
+        <img class="hero-image" src="assets/images/hero_bg.png" alt="Лоток зі свіжою мікрозеленню на темно-зеленому фоні" width="1920" height="1080">
+      </div>
+    </section>
+
+    <!-- Секції мають власні назви-цілі для aria-labelledby. -->
+    <section class="content-section steps-section" id="farm" aria-labelledby="steps-title">
+      <div class="container">
+        <header class="section-heading">
+          <h2 id="steps-title">Від вашої норми до живого лотка</h2>
+          <p>Чотири прості кроки до регулярної доставки.</p>
+        </header>
+        <!-- Порядок кроків є суттєвим, тому використано нумерований список. -->
+        <ol class="steps-grid">
+          <li class="step-card">
+            <img class="step-icon" src="assets/icons/icon-calculator.svg" alt="" width="64" height="64">
+            <h3>Розрахунок норми</h3>
+            <p>Вкажіть свої дані та отримайте орієнтир у калькуляторі Smart.</p>
+          </li>
+          <li class="step-card">
+            <img class="step-icon" src="assets/icons/icon-selection.svg" alt="" width="64" height="64">
+            <h3>Вибір складу</h3>
+            <p>Оберіть готовий набір або поєднайте улюблені культури.</p>
+          </li>
+          <li class="step-card">
+            <img class="step-icon" src="assets/icons/icon-traceability.svg" alt="" width="64" height="64">
+            <h3>Посів під замовлення</h3>
+            <p>Плануємо посів для вашої доставки. Кожен лоток має номер партії.</p>
+          </li>
+          <li class="step-card">
+            <img class="step-icon" src="assets/icons/icon-subscription.svg" alt="" width="64" height="64">
+            <h3>Гнучка зміна графіка</h3>
+            <p>Керуйте підпискою в кабінеті: пауза, пропуск або заміна.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="content-section subscription-section" aria-labelledby="subscription-title">
+      <div class="container">
+        <header class="section-heading">
+          <h2 id="subscription-title">Керуйте підпискою</h2>
+          <p>Змінюйте графік без втрати доставки: поставте на паузу, пропустіть тиждень або замініть склад.</p>
+        </header>
+        <!-- Картки — перелік незалежних дій підписки; article називає кожну картку. -->
+        <ul class="subscription-grid">
+          <li><article class="subscription-card">
+            <header class="card-title"><span class="mini-icon" aria-hidden="true"><i class="icon fa-solid fa-rotate" aria-hidden="true"></i></span><h3>Pause</h3></header>
+            <p>Тимчасово зупиніть доставку без втрати активної підписки.</p>
+          </article></li>
+          <li><article class="subscription-card">
+            <header class="card-title"><span class="mini-icon" aria-hidden="true"><i class="icon fa-solid fa-rotate" aria-hidden="true"></i></span><h3>Skip</h3></header>
+            <p>Пропустіть окремий тиждень без зміни основного графіка.</p>
+          </article></li>
+          <li><article class="subscription-card">
+            <header class="card-title"><span class="mini-icon" aria-hidden="true"><i class="icon fa-solid fa-rotate" aria-hidden="true"></i></span><h3>Swap</h3></header>
+            <p>Замініть склад наступної доставки без переривання підписки.</p>
+          </article></li>
+        </ul>
+        <div class="section-action">
+          <a class="button button-dark" href="#footer">Налаштувати підписку</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section calculator-section" id="calculator" aria-labelledby="calculator-title">
+      <div class="container">
+        <header class="section-heading">
+          <h2 id="calculator-title">Калькулятор щоденної норми Smart</h2>
+          <p>Заповніть дані, щоб підібрати обсяг і склад вашої підписки.</p>
+        </header>
+        <div class="calculator-panel">
+          <form class="calculator-form">
+            <div class="form-progress">
+              <span>Крок 1 з 3</span>
+              <span>Ваші дані → Склад → Підписка</span>
+            </div>
+            <div class="progress-track"><span></span></div>
+
+            <div class="form-fields">
+              <div class="field-group">
+                <label for="weight">Вага (кг)</label>
+                <input id="weight" name="weight" type="number" min="1" placeholder="Наприклад, 70">
+              </div>
+              <div class="field-group">
+                <label for="age">Вік (повних років)</label>
+                <input id="age" name="age" type="number" min="1" placeholder="Повних років">
+              </div>
+              <div class="field-group">
+                <label for="gender">Стать</label>
+                <select id="gender" name="gender">
+                  <option value="">Оберіть стать</option>
+                  <option value="female">Жіноча</option>
+                  <option value="male">Чоловіча</option>
+                  <option value="other">Не вказувати</option>
+                </select>
+              </div>
+            </div>
+
+            <fieldset class="choice-group">
+              <legend>Цілі для здоров’я</legend>
+              <p class="field-hint" id="goals-hint">Оберіть до двох цілей.</p>
+              <div class="chip-options">
+                <label class="choice-chip"><input type="checkbox" name="goal" value="balance" aria-describedby="goals-hint"><span>Збалансований раціон</span></label>
+                <label class="choice-chip"><input type="checkbox" name="goal" value="activity" aria-describedby="goals-hint"><span>Підтримка активності</span></label>
+                <label class="choice-chip"><input type="checkbox" name="goal" value="energy" aria-describedby="goals-hint"><span>Різноманітне харчування</span></label>
+                <label class="choice-chip"><input type="checkbox" name="goal" value="habit" aria-describedby="goals-hint"><span>Щоденна звичка</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="choice-group activity-group">
+              <legend>Рівень активності</legend>
+              <div class="radio-options">
+                <label><input type="radio" name="activity" value="low"> Низький</label>
+                <label><input type="radio" name="activity" value="medium"> Помірний</label>
+                <label><input type="radio" name="activity" value="high"> Високий</label>
+              </div>
+            </fieldset>
+
+            <div class="form-actions">
+              <button class="button button-muted" type="button">Назад</button>
+              <button class="button button-dark" type="button">Далі</button>
+            </div>
+          </form>
+
+          <!-- Результат доповнює калькулятор; output призначений для результату обчислення. -->
+          <div class="calculator-result">
+            <h3 id="daily-result-title">Ваш орієнтир на день</h3>
+            <div class="result-placeholder" aria-hidden="true"><i class="icon fa-solid fa-circle-info" aria-hidden="true"></i></div>
+            <output for="weight age gender" aria-labelledby="daily-result-title">Заповніть дані ліворуч, щоб ми розрахували вашу норму.</output>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tracking-section" aria-labelledby="tracking-title">
+      <div class="container tracking-layout">
+        <div class="tracking-copy">
+          <h2 id="tracking-title">Відстежуйте кожну партію</h2>
+          <p>Номер на лотку відкриває історію вирощування: від посіву до готовності до доставки.</p>
+          <form class="tracking-form">
+            <label for="batch-number">Введіть номер партії</label>
+            <input id="batch-number" name="batch-number" type="text" placeholder="Наприклад, MG-2026-001">
+            <button class="button button-light" type="submit">Перевірити партію</button>
+          </form>
+          <p class="tracking-note">Номер партії вказано на етикетці кожного лотка.</p>
+        </div>
+        <!-- Дані партії подано як терміни та значення у dl. -->
+        <article class="batch-card" aria-labelledby="batch-title">
+          <header class="batch-card-header"><h3 id="batch-title">Приклад картки партії</h3><span aria-hidden="true"><i class="icon fa-solid fa-stopwatch" aria-hidden="true"></i></span></header>
+          <!-- div усередині dl зберігає пару dt/dd як один стилізований рядок. -->
+          <dl>
+            <div class="batch-row"><dt>Номер партії</dt><dd>MG-2026-001</dd></div>
+            <div class="batch-row"><dt>Дата збору / готовності</dt><dd>08.10.2026</dd></div>
+            <div class="batch-row"><dt>Температура вирощування</dt><dd>20–22 °C</dd></div>
+            <div class="batch-row"><dt>Освітлення</dt><dd>16 год / добу</dd></div>
+            <div class="batch-row"><dt>Середовище</dt><dd>Кокосовий субстрат</dd></div>
+            <div class="batch-row"><dt>Культура</dt><dd>Горох, броколі, редис</dd></div>
+          </dl>
+        </article>
+        <a class="batch-help-link" href="#footer">Щось не так із цією партією? Повідомити про проблему</a>
+      </div>
+    </section>
+
+    <section class="content-section sets-section" id="sets" aria-labelledby="sets-title">
+      <div class="container">
+        <header class="section-heading">
+          <h2 id="sets-title">Готові набори на ваш смак</h2>
+          <p>Оберіть склад для себе, родини або професійної кухні.</p>
+        </header>
+        <!-- Кожен набір — окрема картка; варіанти типу покупки належать формі цієї картки. -->
+        <ul class="sets-grid">
+          <li><article class="set-card">
+            <img class="set-image" src="assets/images/set-daily-mix.webp" alt="Лоток мікрозелені: горох, броколі та редис" width="1000" height="558" loading="lazy">
+            <div class="set-card-content">
+              <h3>Щоденний мікс</h3>
+              <p class="set-description">Горох · броколі · редис</p>
+              <p class="set-description">3 живі лотки · орієнтовно 150 г</p>
+              <p class="set-price"><strong>240 ₴</strong> / тиждень</p>
+              <form class="set-order-form">
+                <fieldset class="purchase-options">
+                  <legend>Тип покупки для Щоденного міксу</legend>
+                  <label><input type="radio" name="purchase-daily-mix" id="daily-once" value="once"> Разова покупка</label>
+                  <label><input type="radio" name="purchase-daily-mix" id="daily-subscription" value="subscription" checked> Регулярна підписка</label>
+                </fieldset>
+                <button class="button button-green button-full" type="submit">Оформити підписку</button>
+              </form>
+            </div>
+          </article></li>
+          <li><article class="set-card">
+            <img class="set-image" src="assets/images/set-family-mix.webp" alt="Лоток мікрозелені: горох, соняшник, броколі та редис" width="1000" height="558" loading="lazy">
+            <div class="set-card-content">
+              <h3>Родинний мікс</h3>
+              <p class="set-description">Горох · соняшник · броколі · редис</p>
+              <p class="set-description">6 живих лотків · орієнтовно 300 г</p>
+              <p class="set-price"><strong>450 ₴</strong> / тиждень</p>
+              <form class="set-order-form">
+                <fieldset class="purchase-options">
+                  <legend>Тип покупки для Родинного міксу</legend>
+                  <label><input type="radio" name="purchase-family-mix" id="family-once" value="once"> Разова покупка</label>
+                  <label><input type="radio" name="purchase-family-mix" id="family-subscription" value="subscription" checked> Регулярна підписка</label>
+                </fieldset>
+                <button class="button button-green button-full" type="submit">Оформити підписку</button>
+              </form>
+            </div>
+          </article></li>
+          <li><article class="set-card">
+            <img class="set-image" src="assets/images/set-kitchen-mix.webp" alt="Лоток мікрозелені з етикеткою Microgreen" width="1000" height="558" loading="lazy">
+            <div class="set-card-content">
+              <h3>Мікс для кухні</h3>
+              <p class="set-description">Горох · редис · гірчиця · соняшник</p>
+              <p class="set-description">12 живих лотків · орієнтовно 600 г</p>
+              <p class="set-price"><strong>840 ₴</strong> / тиждень</p>
+              <form class="set-order-form">
+                <fieldset class="purchase-options">
+                  <legend>Тип покупки для Міксу для кухні</legend>
+                    <label><input type="radio" name="purchase-kitchen-mix" id="kitchen-once" value="once"> Разова покупка</label>
+                    <label><input type="radio" name="purchase-kitchen-mix" id="kitchen-subscription" value="subscription" checked> Регулярна підписка</label>
+                </fieldset>
+                <button class="button button-green button-full" type="submit">Оформити підписку</button>
+              </form>
+              </div>
+            </article></li>
+            </ul>
+        <p class="price-note">Набори, ваги та ціни наведені як приклад, пропозиція для макета.</p>
+      </div>
+    </section>
+
+    <section class="business-section" id="business" aria-labelledby="business-title">
+      <div class="container business-layout">
+        <img class="business-image" src="assets/images/business-kitchen.webp" alt="Шеф-кухар викладає мікрозелень на страву" width="1200" height="670" loading="lazy">
+        <header class="business-copy">
+          <h2 id="business-title">Для кафе та ресторанів</h2>
+          <p>Живі лотки для вашого меню: узгоджений склад, регулярний графік і прозора історія кожної партії.</p>
+          <p>Підберемо обсяг під кухню та погодимо умови постачання.</p>
+          <a class="button button-dark" href="#footer">Для бізнесу</a>
+        </header>
+      </div>
+    </section>
+
+    <section class="content-section testimonials-section" aria-labelledby="testimonials-title">
+      <div class="container">
+        <header class="section-heading">
+          <h2 id="testimonials-title">Мікрозелень у щоденних звичках</h2>
+          <p>Приклади відгуків для макета — не підтверджені відгуки клієнтів.</p>
+        </header>
+        <!-- figure об'єднує цитату з figcaption, що підписує автора й опис. -->
+        <ul class="testimonials-grid">
+          <li><article class="testimonial-card">
+            <figure>
+              <blockquote>«Додаю зелень до сніданку після тренування. Зручно отримувати лотки за своїм графіком.»</blockquote>
+              <figcaption><span class="avatar-placeholder" aria-hidden="true"></span><span><strong>Олена Коваль</strong><small>Прихильниця активного способу життя</small></span></figcaption>
+            </figure>
+          </article></li>
+          <li><article class="testimonial-card">
+            <figure>
+              <blockquote>«Ми обираємо різні культури для салатів. Якщо їдемо у відпустку — ставимо доставку на паузу.»</blockquote>
+              <figcaption><span class="avatar-placeholder" aria-hidden="true"></span><span><strong>Андрій Мельник</strong><small>Обирає продукти для родини</small></span></figcaption>
+            </figure>
+          </article></li>
+          <li><article class="testimonial-card">
+            <figure>
+              <blockquote>«Живі лотки зручно тримати на кухні. Склад наступної доставки підбираємо під сезонне меню.»</blockquote>
+              <figcaption><span class="avatar-placeholder" aria-hidden="true"></span><span><strong>Марія Бондар</strong><small>Шеф-кухарка кафе</small></span></figcaption>
+            </figure>
+          </article></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section faq-section" id="knowledge" aria-labelledby="faq-title">
+      <div class="container faq-layout">
+        <header class="section-heading faq-intro">
+          <h2 id="faq-title">Поширені запитання</h2>
+          <p>Про доставку, догляд за живими лотками та керування підпискою.</p>
+          <p>Не знайшли відповідь? Зверніться до підтримки через розділ «Контакти».</p>
+        </header>
+        <ul class="faq-list">
+          <li><details open>
+            <summary>Як працює доставка?</summary>
+            <p>Під час оформлення оберіть доступний день і адресу. Перед доставкою ви отримаєте підтвердження в кабінеті. Графік наступних замовлень можна змінити; доступність і вартість доставки відображаються до оплати.</p>
+          </details></li>
+          <li><details>
+            <summary>Як зберігати мікрозелень, щоб вона залишалася свіжою?</summary>
+            <p>Тримайте лоток у холодильнику, не заливайте водою і зрізайте зелень безпосередньо перед подачею. Так вона довше зберігає свіжість.</p>
+          </details></li>
+          <li><details>
+            <summary>Як поставити підписку на паузу?</summary>
+            <p>У особистому кабінеті відкрийте розділ «Моя підписка» і оберіть «Pause». Доставки зупиняться без втрати підписки, а відновити їх можна в будь-який момент.</p>
+          </details></li>
+          <li><details>
+            <summary>Що робити, якщо я маю алергію?</summary>
+            <p>Перевірте склад кожного набору перед замовленням. Якщо маєте алергію або харчові обмеження, проконсультуйтеся з лікарем і зверніться до підтримки через розділ «Контакти».</p>
+          </details></li>
+          <li><details>
+            <summary>Як скасувати підписку?</summary>
+            <p>Скасувати або змінити підписку можна в особистому кабінеті. Нові доставки після скасування не плануватимуться.</p>
+          </details></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="newsletter-section" aria-labelledby="newsletter-title">
+      <div class="container newsletter-layout">
+        <header>
+          <h2 id="newsletter-title">Корисні листи про мікрозелень</h2>
+          <p>Рецепти, догляд за лотками та новини ферми — на вашу електронну пошту.</p>
+        </header>
+        <form class="newsletter-form">
+          <label for="newsletter-email">Електронна пошта</label>
+          <div class="newsletter-controls">
+            <input id="newsletter-email" name="email" type="email" placeholder="Ваша електронна адреса" required>
+            <button class="button button-dark" type="submit">Підписатися</button>
+          </div>
+          <label class="consent-label"><input type="checkbox" name="consent" required> Погоджуюся отримувати листи та з політикою конфіденційності.</label>
+        </form>
+      </div>
+    </section>
+
+    <section class="final-cta" aria-labelledby="final-cta-title">
+      <div class="container final-cta-inner">
+        <h2 id="final-cta-title">Ваша щоденна порція зелені — за вашим графіком</h2>
+        <p>Розрахуйте норму та оберіть підписку, яку легко змінювати.</p>
+        <a class="button button-light" href="#calculator">Розрахувати мою норму</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <a class="brand footer-brand" href="#">
+        <img class="brand-mark" src="assets/images/logo-light.svg" alt="Microgreen" width="628" height="80">
+      </a>
+      <div class="footer-columns">
+        <nav class="footer-column" aria-labelledby="footer-catalog-title">
+          <h2 id="footer-catalog-title">Каталог</h2>
+          <ul>
+            <li><a href="#sets">Готові набори</a></li>
+            <li><a href="#sets">Підписки</a></li>
+            <li><a href="#calculator">Калькулятор Smart</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-column" aria-labelledby="footer-farm-title">
+          <h2 id="footer-farm-title">Про ферму</h2>
+          <ul>
+            <li><a href="#farm">Як вирощуємо</a></li>
+            <li><a href="#tracking-title">Перевірити партію</a></li>
+            <li><a href="#knowledge">База знань</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-column" aria-labelledby="footer-account-title">
+          <h2 id="footer-account-title">Кабінет</h2>
+          <ul>
+            <li><a href="#footer">Моя підписка</a></li>
+            <li><a href="#footer">Історія замовлень</a></li>
+            <li><a href="#footer">Адреси доставки</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-column" aria-labelledby="footer-support-title">
+          <h2 id="footer-support-title">Підтримка</h2>
+          <ul>
+            <li><a href="#footer">Контакти</a></li>
+            <li><a href="#footer">Доставка й оплата</a></li>
+            <li><a href="#footer">Скарга на номер партії</a></li>
+            <li><a href="#knowledge">Поширені запитання</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p><small>© 2026 Microgreen</small></p>
+        <nav aria-label="Юридична інформація">
+          <ul>
+            <li><a href="#footer">Політика конфіденційності</a></li>
+            <li><a href="#footer">Умови користування</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
