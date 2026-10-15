@@ -2,7 +2,7 @@
   color-scheme: light;
 
   /* Colors */
-  --color-primary: #368d00;
+  --color-primary: #347f00;
   --color-primary-hover: #2d7500;
   --color-brand-accent: #38b000;
   --color-surface-dark: #1e3a2b;
@@ -11,7 +11,7 @@
   --color-surface-tint: #edf4ed;
   --color-text: #1c3026;
   --color-text-strong: #10271c;
-  --color-text-muted: #78837c;
+  --color-text-muted: #68736c;
   --color-border: #dce4dd;
   --color-white: #ffffff;
   /* Strong green for compact accents and controls. */
