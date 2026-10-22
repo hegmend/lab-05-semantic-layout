@@ -7,6 +7,51 @@
       name="description"
       content="Жива мікрозелень від Microgreen — під ваш щоденний раціон і графік."
     />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#347f00",
+              "primary-hover": "#2d7500",
+              accent: "#38b000",
+              dark: "#1e3a2b",
+              darkest: "#0c1f14",
+              focus: "#528b3d",
+              ink: "#1c3026",
+              "ink-strong": "#10271c",
+              "ink-muted": "#68736c",
+              "ink-subtle": "#617067",
+              placeholder: "#68736c",
+              "ink-on-dark-muted": "rgb(255 255 255 / 72%)",
+              placeholder: "#68736c",
+              "surface-soft": "#f5f8f3",
+              "line": "#dce4dd",
+              "line-strong": "#bcc8bf",
+              "line-subtle": "#e2e7e2",
+              "accent-strong": "#27543a",
+              "overlay-subtle": "rgb(255 255 255 / 15%)",
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              heading: ["Manrope", "sans-serif"],
+            },
+            borderRadius: {
+              btn: "7px",
+              card: "12px",
+            },
+            maxWidth: {
+              site: "1310px",
+            },
+            boxShadow: {
+              card: "0 3px 14px rgb(19 48 31 / 7%)",
+              header: "0 1px 8px rgba(0, 0, 0, 0.07)",
+            },
+          },
+        },
+      };
+    </script>
     <title>Microgreen — жива мікрозелень за підпискою</title>
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="uk_UA" />
@@ -31,12 +76,18 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <header class="site-header">
-      <!-- Контейнер і група дій суто компонувальні; окремої HTML-семантики не мають. -->
-      <div class="container header-inner">
-        <a class="brand" href="index.html">
+    <header
+      class="sticky top-0 z-50 bg-white font-sans text-ink shadow-header"
+    >
+      <div
+        class="mx-auto flex min-h-[72px] max-w-site items-center justify-between gap-2 px-4 sm:px-6 md:min-h-[88px] md:gap-1 lg:gap-4 lg:px-8"
+      >
+        <a
+          class="inline-flex shrink-0 items-center rounded-btn transition-colors duration-200 hover:text-primary focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+          href="index.html"
+        >
           <img
-            class="brand-mark"
+            class="h-4 w-auto"
             src="assets/images/logo.svg"
             alt="Microgreen"
             width="628"
@@ -44,23 +95,131 @@
           />
         </a>
 
-        <nav class="main-nav" aria-label="Головна навігація">
-          <ul>
-            <li><a href="#sets">Каталог</a></li>
-            <li><a href="#farm">Про ферму</a></li>
-            <li><a href="#knowledge">База знань</a></li>
-            <li><a href="#business">Для бізнесу</a></li>
-            <li><a href="#contacts">Контакти</a></li>
+        <nav class="hidden items-center md:flex" aria-label="Головна навігація">
+          <ul class="flex items-center gap-1 lg:gap-4">
+            <li>
+              <a
+                class="inline-flex min-h-6 items-center whitespace-nowrap text-[12px] font-semibold transition-colors duration-200 hover:text-primary focus-visible:rounded-btn focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus lg:text-sm"
+                href="#sets"
+                >Каталог</a
+              >
+            </li>
+            <li>
+              <a
+                class="inline-flex min-h-6 items-center whitespace-nowrap text-[12px] font-semibold transition-colors duration-200 hover:text-primary focus-visible:rounded-btn focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus lg:text-sm"
+                href="#farm"
+                >Про ферму</a
+              >
+            </li>
+            <li>
+              <a
+                class="inline-flex min-h-6 items-center whitespace-nowrap text-[12px] font-semibold transition-colors duration-200 hover:text-primary focus-visible:rounded-btn focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus lg:text-sm"
+                href="#knowledge"
+                >База знань</a
+              >
+            </li>
+            <li>
+              <a
+                class="inline-flex min-h-6 items-center whitespace-nowrap text-[12px] font-semibold transition-colors duration-200 hover:text-primary focus-visible:rounded-btn focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus lg:text-sm"
+                href="#business"
+                >Для бізнесу</a
+              >
+            </li>
+            <li>
+              <a
+                class="inline-flex min-h-6 items-center whitespace-nowrap text-[12px] font-semibold transition-colors duration-200 hover:text-primary focus-visible:rounded-btn focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus lg:text-sm"
+                href="#contacts"
+                >Контакти</a
+              >
+            </li>
           </ul>
         </nav>
 
-        <div class="header-actions">
-          <a class="account-link" href="#account">Особистий кабінет</a>
-          <a class="button button-primary button-small" href="#calculator"
+        <div class="hidden items-center gap-1 md:flex lg:gap-5">
+          <a
+            class="inline-flex min-h-6 items-center whitespace-nowrap text-[12px] font-semibold transition-colors duration-200 hover:text-primary focus-visible:rounded-btn focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus lg:text-sm"
+            href="#account"
+            >Особистий кабінет</a
+          >
+          <a
+            class="inline-flex min-h-[44px] items-center justify-center whitespace-nowrap rounded-btn bg-primary px-2 py-2 text-[12px] font-semibold text-white transition-[background-color,transform] duration-200 hover:-translate-y-px hover:bg-primary-hover active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0 focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus lg:px-5 lg:text-sm"
+            href="#calculator"
             >Розрахувати норму</a
           >
         </div>
+
+        <button
+          id="menu-toggle"
+          class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-btn text-ink transition-colors duration-200 hover:bg-surface-soft hover:text-primary focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus md:hidden"
+          type="button"
+          aria-label="Відкрити меню"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+        >
+          <span id="menu-open-icon"
+            ><i class="fa-solid fa-bars" aria-hidden="true"></i
+          ></span>
+          <span id="menu-close-icon" class="hidden"
+            ><i class="fa-solid fa-xmark" aria-hidden="true"></i
+          ></span>
+        </button>
       </div>
+
+      <nav
+        id="mobile-menu"
+        class="hidden border-t border-line px-4 pb-5 pt-3 md:hidden"
+        aria-label="Мобільна навігація"
+      >
+        <ul class="flex flex-col gap-1">
+          <li>
+            <a
+              class="flex min-h-11 items-center rounded-btn px-3 py-3 text-sm font-semibold transition-colors duration-200 hover:bg-surface-soft hover:text-primary focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+              href="#sets"
+              >Каталог</a
+            >
+          </li>
+          <li>
+            <a
+              class="flex min-h-11 items-center rounded-btn px-3 py-3 text-sm font-semibold transition-colors duration-200 hover:bg-surface-soft hover:text-primary focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+              href="#farm"
+              >Про ферму</a
+            >
+          </li>
+          <li>
+            <a
+              class="flex min-h-11 items-center rounded-btn px-3 py-3 text-sm font-semibold transition-colors duration-200 hover:bg-surface-soft hover:text-primary focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+              href="#knowledge"
+              >База знань</a
+            >
+          </li>
+          <li>
+            <a
+              class="flex min-h-11 items-center rounded-btn px-3 py-3 text-sm font-semibold transition-colors duration-200 hover:bg-surface-soft hover:text-primary focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+              href="#business"
+              >Для бізнесу</a
+            >
+          </li>
+          <li>
+            <a
+              class="flex min-h-11 items-center rounded-btn px-3 py-3 text-sm font-semibold transition-colors duration-200 hover:bg-surface-soft hover:text-primary focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+              href="#contacts"
+              >Контакти</a
+            >
+          </li>
+        </ul>
+        <div class="mt-3 flex flex-col gap-2 border-t border-line pt-3">
+          <a
+            class="flex min-h-11 items-center rounded-btn px-3 py-3 text-sm font-semibold transition-colors duration-200 hover:bg-surface-soft hover:text-primary focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+            href="#account"
+            >Особистий кабінет</a
+          >
+          <a
+            class="inline-flex min-h-[44px] w-full items-center justify-center rounded-btn bg-primary px-5 py-3 text-sm font-semibold text-white transition-[background-color,transform] duration-200 hover:-translate-y-px hover:bg-primary-hover active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0 focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+            href="#calculator"
+            >Розрахувати норму</a
+          >
+        </div>
+      </nav>
     </header>
 
     <main>
@@ -76,11 +235,11 @@
               Розрахуйте свою норму, оберіть склад та змінюйте графік: пауза,
               пропуск або заміна.
             </p>
-            <div class="button-row">
-              <a class="button button-primary" href="#calculator"
+            <div class="button-row flex flex-col gap-2 sm:flex-row">
+              <a class="button button-primary w-full sm:w-auto" href="#calculator"
                 >Розрахувати мою норму</a
               >
-              <a class="button button-outline-light" href="#sets"
+              <a class="button button-outline-light w-full sm:w-auto" href="#sets"
                 >Переглянути набори</a
               >
             </div>
@@ -89,11 +248,12 @@
             </p>
           </header>
           <img
-            class="hero-image"
+            class="hero-image h-[170px] max-w-full object-cover sm:h-[260px] lg:h-[360px]"
             src="assets/images/hero_bg.png"
             alt="Лоток зі свіжою мікрозеленню на темно-зеленому фоні"
             width="1920"
             height="1080"
+            fetchpriority="high"
           />
         </div>
       </section>
@@ -110,7 +270,7 @@
             <p>Чотири прості кроки до регулярної доставки.</p>
           </header>
           <!-- Порядок кроків є суттєвим, тому використано нумерований список. -->
-          <ol class="steps-grid">
+          <ol class="steps-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             <li class="step-card">
               <img
                 class="step-icon"
@@ -118,6 +278,8 @@
                 alt=""
                 width="64"
                 height="64"
+                loading="lazy"
+                decoding="async"
               />
               <h3>Розрахунок норми</h3>
               <p>
@@ -127,10 +289,12 @@
             <li class="step-card">
               <img
                 class="step-icon"
-                src="assets/icons/icon-selection.svg"
+                src="assets/icons/icon-freshness.svg"
                 alt=""
                 width="64"
                 height="64"
+                loading="lazy"
+                decoding="async"
               />
               <h3>Вибір складу</h3>
               <p>Оберіть готовий набір або поєднайте улюблені культури.</p>
@@ -142,6 +306,8 @@
                 alt=""
                 width="64"
                 height="64"
+                loading="lazy"
+                decoding="async"
               />
               <h3>Посів під замовлення</h3>
               <p>
@@ -155,6 +321,8 @@
                 alt=""
                 width="64"
                 height="64"
+                loading="lazy"
+                decoding="async"
               />
               <h3>Гнучка зміна графіка</h3>
               <p>Керуйте підпискою в кабінеті: пауза, пропуск або заміна.</p>
@@ -164,6 +332,7 @@
       </section>
 
       <section
+        id="subscription"
         class="content-section subscription-section"
         aria-labelledby="subscription-title"
       >
@@ -243,6 +412,7 @@
                 <div class="field-group">
                   <label for="weight">Вага (кг)</label>
                   <input
+                    class="placeholder:text-placeholder"
                     id="weight"
                     name="weight"
                     type="number"
@@ -253,6 +423,7 @@
                 <div class="field-group">
                   <label for="age">Вік (повних років)</label>
                   <input
+                    class="placeholder:text-placeholder"
                     id="age"
                     name="age"
                     type="number"
@@ -361,6 +532,7 @@
             <form class="tracking-form">
               <label for="batch-number">Введіть номер партії</label>
               <input
+                class="placeholder:text-placeholder"
                 id="batch-number"
                 name="batch-number"
                 type="text"
@@ -417,57 +589,83 @@
       </section>
 
       <section
-        class="content-section sets-section"
+        class="py-10 md:py-14"
         id="sets"
         aria-labelledby="sets-title"
       >
-        <div class="container">
-          <header class="section-heading">
-            <h2 id="sets-title">Готові набори на ваш смак</h2>
-            <p>Оберіть склад для себе, родини або професійної кухні.</p>
+        <div class="mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8">
+          <header class="mb-6">
+            <h2
+              id="sets-title"
+              class="mb-2 font-heading text-2xl leading-[1.2] tracking-[-0.01em] text-ink-strong md:text-[32px]"
+            >
+              Готові набори на ваш смак
+            </h2>
+            <p class="mb-0 text-sm text-ink-muted">
+              Оберіть склад для себе, родини або професійної кухні.
+            </p>
           </header>
           <!-- Кожен набір — окрема картка; варіанти типу покупки належать формі цієї картки. -->
-          <ul class="sets-grid">
-            <li>
-              <article class="set-card">
+          <ul
+            class="grid grid-cols-1 list-none gap-6 m-0 p-0 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            <li class="h-full min-w-0 w-full">
+              <article
+                class="flex h-full w-full flex-col rounded-card border border-line bg-surface-soft transition-[transform,box-shadow] duration-[180ms] hover:-translate-y-1 hover:shadow-card motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+              >
                 <img
-                  class="set-image"
+                  class="mx-3 mt-3 h-[150px] w-[calc(100%-24px)] rounded-btn border border-line-subtle object-cover"
                   src="assets/images/set-daily-mix.webp"
                   alt="Лоток мікрозелені: горох, броколі та редис"
                   width="1000"
                   height="558"
                   loading="lazy"
+                  decoding="async"
                 />
-                <div class="set-card-content">
-                  <h3>Щоденний мікс</h3>
-                  <p class="set-description">Горох · броколі · редис</p>
-                  <p class="set-description">3 живі лотки · орієнтовно 150 г</p>
-                  <p class="set-price"><strong>240 ₴</strong> / тиждень</p>
-                  <form class="set-order-form">
-                    <fieldset class="purchase-options">
-                      <legend>Тип покупки для Щоденного міксу</legend>
-                      <label
-                        ><input
+                <div class="flex flex-1 flex-col p-3">
+                  <h3
+                    class="mb-2 font-heading text-[16px] font-bold text-ink-strong"
+                  >
+                    Щоденний мікс
+                  </h3>
+                  <p class="mb-1 text-sm text-ink-muted">
+                    Горох · броколі · редис
+                  </p>
+                  <p class="mb-1 text-sm text-ink-muted">
+                    3 живі лотки · орієнтовно 150 г
+                  </p>
+                  <p class="my-2 text-sm text-ink">
+                    <strong class="font-bold">240 ₴</strong> / тиждень
+                  </p>
+                  <form action="#subscription" class="flex flex-1 flex-col">
+                    <fieldset
+                      class="mt-3 flex min-w-0 flex-col gap-2 rounded-[6px] border border-line-strong px-2 py-1"
+                    >
+                      <legend class="max-w-full break-words px-1 text-[12px] font-semibold text-ink">
+                        Тип покупки для Щоденного міксу
+                      </legend>
+                      <label class="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink sm:min-h-6">
+                        <input
+                          class="accent-accent-strong focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
                           type="radio"
                           name="purchase-daily-mix"
                           id="daily-once"
                           value="once"
-                        />
-                        Разова покупка</label
-                      >
-                      <label
-                        ><input
+                        />Разова покупка
+                      </label>
+                      <label class="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink sm:min-h-6">
+                        <input
+                          class="accent-accent-strong focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
                           type="radio"
                           name="purchase-daily-mix"
                           id="daily-subscription"
                           value="subscription"
                           checked
-                        />
-                        Регулярна підписка</label
-                      >
+                        />Регулярна підписка
+                      </label>
                     </fieldset>
                     <button
-                      class="button button-green button-full"
+                      class="mt-auto inline-flex min-h-[44px] w-full items-center justify-center rounded-btn border-0 bg-primary px-4 py-3 font-bold text-white transition-[background-color,transform] duration-[180ms] hover:-translate-y-px hover:bg-primary-hover active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0 focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
                       type="submit"
                     >
                       Оформити підписку
@@ -476,50 +674,62 @@
                 </div>
               </article>
             </li>
-            <li>
-              <article class="set-card">
+            <li class="h-full min-w-0 w-full">
+              <article
+                class="flex h-full w-full flex-col rounded-card border border-line bg-surface-soft transition-[transform,box-shadow] duration-[180ms] hover:-translate-y-1 hover:shadow-card motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+              >
                 <img
-                  class="set-image"
+                  class="mx-3 mt-3 h-[150px] w-[calc(100%-24px)] rounded-btn border border-line-subtle object-cover"
                   src="assets/images/set-family-mix.webp"
                   alt="Лоток мікрозелені: горох, соняшник, броколі та редис"
                   width="1000"
                   height="558"
-                  loading="lazy"
+                  loading="lazy" decoding="async"
                 />
-                <div class="set-card-content">
-                  <h3>Родинний мікс</h3>
-                  <p class="set-description">
+                <div class="flex flex-1 flex-col p-3">
+                  <h3
+                    class="mb-2 font-heading text-[16px] font-bold text-ink-strong"
+                  >
+                    Родинний мікс
+                  </h3>
+                  <p class="mb-1 text-sm text-ink-muted">
                     Горох · соняшник · броколі · редис
                   </p>
-                  <p class="set-description">
+                  <p class="mb-1 text-sm text-ink-muted">
                     6 живих лотків · орієнтовно 300 г
                   </p>
-                  <p class="set-price"><strong>450 ₴</strong> / тиждень</p>
-                  <form class="set-order-form">
-                    <fieldset class="purchase-options">
-                      <legend>Тип покупки для Родинного міксу</legend>
-                      <label
-                        ><input
+                  <p class="my-2 text-sm text-ink">
+                    <strong class="font-bold">450 ₴</strong> / тиждень
+                  </p>
+                  <form action="#subscription" class="flex flex-1 flex-col">
+                    <fieldset
+                      class="mt-3 flex min-w-0 flex-col gap-2 rounded-[6px] border border-line-strong px-2 py-1"
+                    >
+                      <legend class="max-w-full break-words px-1 text-[12px] font-semibold text-ink">
+                        Тип покупки для Родинного міксу
+                      </legend>
+                      <label class="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink sm:min-h-6">
+                        <input
+                          class="accent-accent-strong focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
                           type="radio"
                           name="purchase-family-mix"
                           id="family-once"
                           value="once"
-                        />
-                        Разова покупка</label
-                      >
-                      <label
-                        ><input
+                        />Разова покупка
+                      </label>
+                      <label class="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink sm:min-h-6">
+                        <input
+                          class="accent-accent-strong focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
                           type="radio"
                           name="purchase-family-mix"
                           id="family-subscription"
                           value="subscription"
                           checked
-                        />
-                        Регулярна підписка</label
-                      >
+                        />Регулярна підписка
+                      </label>
                     </fieldset>
                     <button
-                      class="button button-green button-full"
+                      class="mt-auto inline-flex min-h-[44px] w-full items-center justify-center rounded-btn border-0 bg-primary px-4 py-3 font-bold text-white transition-[background-color,transform] duration-[180ms] hover:-translate-y-px hover:bg-primary-hover active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0 focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
                       type="submit"
                     >
                       Оформити підписку
@@ -528,50 +738,272 @@
                 </div>
               </article>
             </li>
-            <li>
-              <article class="set-card">
+            <li class="h-full min-w-0 w-full">
+              <article
+                class="flex h-full w-full flex-col rounded-card border border-line bg-surface-soft transition-[transform,box-shadow] duration-[180ms] hover:-translate-y-1 hover:shadow-card motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+              >
                 <img
-                  class="set-image"
+                  class="mx-3 mt-3 h-[150px] w-[calc(100%-24px)] rounded-btn border border-line-subtle object-cover"
                   src="assets/images/set-kitchen-mix.webp"
                   alt="Лоток мікрозелені з етикеткою Microgreen"
                   width="1000"
                   height="558"
-                  loading="lazy"
+                  loading="lazy" decoding="async"
                 />
-                <div class="set-card-content">
-                  <h3>Мікс для кухні</h3>
-                  <p class="set-description">
+                <div class="flex flex-1 flex-col p-3">
+                  <h3
+                    class="mb-2 font-heading text-[16px] font-bold text-ink-strong"
+                  >
+                    Мікс для кухні
+                  </h3>
+                  <p class="mb-1 text-sm text-ink-muted">
                     Горох · редис · гірчиця · соняшник
                   </p>
-                  <p class="set-description">
+                  <p class="mb-1 text-sm text-ink-muted">
                     12 живих лотків · орієнтовно 600 г
                   </p>
-                  <p class="set-price"><strong>840 ₴</strong> / тиждень</p>
-                  <form class="set-order-form">
-                    <fieldset class="purchase-options">
-                      <legend>Тип покупки для Міксу для кухні</legend>
-                      <label
-                        ><input
+                  <p class="my-2 text-sm text-ink">
+                    <strong class="font-bold">840 ₴</strong> / тиждень
+                  </p>
+                  <form action="#subscription" class="flex flex-1 flex-col">
+                    <fieldset
+                      class="mt-3 flex min-w-0 flex-col gap-2 rounded-[6px] border border-line-strong px-2 py-1"
+                    >
+                      <legend class="max-w-full break-words px-1 text-[12px] font-semibold text-ink">
+                        Тип покупки для Міксу для кухні
+                      </legend>
+                      <label class="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink sm:min-h-6">
+                        <input
+                          class="accent-accent-strong focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
                           type="radio"
                           name="purchase-kitchen-mix"
                           id="kitchen-once"
                           value="once"
-                        />
-                        Разова покупка</label
-                      >
-                      <label
-                        ><input
+                        />Разова покупка
+                      </label>
+                      <label class="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink sm:min-h-6">
+                        <input
+                          class="accent-accent-strong focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
                           type="radio"
                           name="purchase-kitchen-mix"
                           id="kitchen-subscription"
                           value="subscription"
                           checked
-                        />
-                        Регулярна підписка</label
-                      >
+                        />Регулярна підписка
+                      </label>
                     </fieldset>
                     <button
-                      class="button button-green button-full"
+                      class="mt-auto inline-flex min-h-[44px] w-full items-center justify-center rounded-btn border-0 bg-primary px-4 py-3 font-bold text-white transition-[background-color,transform] duration-[180ms] hover:-translate-y-px hover:bg-primary-hover active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0 focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                      type="submit"
+                    >
+                      Оформити підписку
+                    </button>
+                  </form>
+                </div>
+              </article>
+            </li>
+            <li class="h-full min-w-0 w-full">
+              <article
+                class="flex h-full w-full flex-col rounded-card border border-line bg-surface-soft transition-[transform,box-shadow] duration-[180ms] hover:-translate-y-1 hover:shadow-card motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+              >
+                <img
+                  class="mx-3 mt-3 h-[150px] w-[calc(100%-24px)] rounded-btn border border-line-subtle object-cover"
+                  src="assets/images/set-daily-mix.webp"
+                  alt="Лоток мікрозелені: горох, броколі та редис"
+                  width="1000"
+                  height="558"
+                  loading="lazy" decoding="async"
+                />
+                <div class="flex flex-1 flex-col p-3">
+                  <h3
+                    class="mb-2 font-heading text-[16px] font-bold text-ink-strong"
+                  >
+                    Пробний набір
+                  </h3>
+                  <p class="mb-1 text-sm text-ink-muted">
+                    Горох · редис
+                  </p>
+                  <p class="mb-1 text-sm text-ink-muted">
+                    1 лоток · ~50 г
+                  </p>
+                  <p class="my-2 text-sm text-ink">
+                    <strong class="font-bold">90 ₴</strong> / тиждень
+                  </p>
+                  <form action="#subscription" class="flex flex-1 flex-col">
+                    <fieldset
+                      class="mt-3 flex min-w-0 flex-col gap-2 rounded-[6px] border border-line-strong px-2 py-1"
+                    >
+                      <legend
+                        class="max-w-full break-words px-1 text-[12px] font-semibold text-ink"
+                      >
+                        Тип покупки для Пробного набору
+                      </legend>
+                      <label
+                        class="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink sm:min-h-6"
+                      >
+                        <input
+                          class="accent-accent-strong focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                          type="radio"
+                          name="purchase-trial-mix"
+                          id="trial-once"
+                          value="once"
+                        />Разова покупка
+                      </label>
+                      <label
+                        class="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink sm:min-h-6"
+                      >
+                        <input
+                          class="accent-accent-strong focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                          type="radio"
+                          name="purchase-trial-mix"
+                          id="trial-subscription"
+                          value="subscription"
+                          checked
+                        />Регулярна підписка
+                      </label>
+                    </fieldset>
+                    <button
+                      class="mt-auto inline-flex min-h-[44px] w-full items-center justify-center rounded-btn border-0 bg-primary px-4 py-3 font-bold text-white transition-[background-color,transform] duration-[180ms] hover:-translate-y-px hover:bg-primary-hover active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0 focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                      type="submit"
+                    >
+                      Оформити підписку
+                    </button>
+                  </form>
+                </div>
+              </article>
+            </li>
+            <li class="h-full min-w-0 w-full">
+              <article
+                class="flex h-full w-full flex-col rounded-card border border-line bg-surface-soft transition-[transform,box-shadow] duration-[180ms] hover:-translate-y-1 hover:shadow-card motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+              >
+                <img
+                  class="mx-3 mt-3 h-[150px] w-[calc(100%-24px)] rounded-btn border border-line-subtle object-cover"
+                  src="assets/images/set-kitchen-mix.webp"
+                  alt="Лоток мікрозелені з етикеткою Microgreen"
+                  width="1000"
+                  height="558"
+                  loading="lazy" decoding="async"
+                />
+                <div class="flex flex-1 flex-col p-3">
+                  <h3
+                    class="mb-2 font-heading text-[16px] font-bold text-ink-strong"
+                  >
+                    Гострий мікс
+                  </h3>
+                  <p class="mb-1 text-sm text-ink-muted">
+                    Редис · гірчиця
+                  </p>
+                  <p class="mb-1 text-sm text-ink-muted">
+                    2 лотки · ~100 г
+                  </p>
+                  <p class="my-2 text-sm text-ink">
+                    <strong class="font-bold">170 ₴</strong> / тиждень
+                  </p>
+                  <form action="#subscription" class="flex flex-1 flex-col">
+                    <fieldset
+                      class="mt-3 flex min-w-0 flex-col gap-2 rounded-[6px] border border-line-strong px-2 py-1"
+                    >
+                      <legend
+                        class="max-w-full break-words px-1 text-[12px] font-semibold text-ink"
+                      >
+                        Тип покупки для Гострого міксу
+                      </legend>
+                      <label
+                        class="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink sm:min-h-6"
+                      >
+                        <input
+                          class="accent-accent-strong focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                          type="radio"
+                          name="purchase-spicy-mix"
+                          id="spicy-once"
+                          value="once"
+                        />Разова покупка
+                      </label>
+                      <label
+                        class="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink sm:min-h-6"
+                      >
+                        <input
+                          class="accent-accent-strong focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                          type="radio"
+                          name="purchase-spicy-mix"
+                          id="spicy-subscription"
+                          value="subscription"
+                          checked
+                        />Регулярна підписка
+                      </label>
+                    </fieldset>
+                    <button
+                      class="mt-auto inline-flex min-h-[44px] w-full items-center justify-center rounded-btn border-0 bg-primary px-4 py-3 font-bold text-white transition-[background-color,transform] duration-[180ms] hover:-translate-y-px hover:bg-primary-hover active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0 focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                      type="submit"
+                    >
+                      Оформити підписку
+                    </button>
+                  </form>
+                </div>
+              </article>
+            </li>
+            <li class="h-full min-w-0 w-full">
+              <article
+                class="flex h-full w-full flex-col rounded-card border border-line bg-surface-soft transition-[transform,box-shadow] duration-[180ms] hover:-translate-y-1 hover:shadow-card motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+              >
+                <img
+                  class="mx-3 mt-3 h-[150px] w-[calc(100%-24px)] rounded-btn border border-line-subtle object-cover"
+                  src="assets/images/set-family-mix.webp"
+                  alt="Лоток мікрозелені: горох, соняшник, броколі та редис"
+                  width="1000"
+                  height="558"
+                  loading="lazy" decoding="async"
+                />
+                <div class="flex flex-1 flex-col p-3">
+                  <h3
+                    class="mb-2 font-heading text-[16px] font-bold text-ink-strong"
+                  >
+                    Спортивний мікс
+                  </h3>
+                  <p class="mb-1 text-sm text-ink-muted">
+                    Горох · соняшник · броколі
+                  </p>
+                  <p class="mb-1 text-sm text-ink-muted">
+                    4 лотки · ~200 г
+                  </p>
+                  <p class="my-2 text-sm text-ink">
+                    <strong class="font-bold">320 ₴</strong> / тиждень
+                  </p>
+                  <form action="#subscription" class="flex flex-1 flex-col">
+                    <fieldset
+                      class="mt-3 flex min-w-0 flex-col gap-2 rounded-[6px] border border-line-strong px-2 py-1"
+                    >
+                      <legend
+                        class="max-w-full break-words px-1 text-[12px] font-semibold text-ink"
+                      >
+                        Тип покупки для Спортивного міксу
+                      </legend>
+                      <label
+                        class="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink sm:min-h-6"
+                      >
+                        <input
+                          class="accent-accent-strong focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                          type="radio"
+                          name="purchase-sport-mix"
+                          id="sport-once"
+                          value="once"
+                        />Разова покупка
+                      </label>
+                      <label
+                        class="flex min-h-11 cursor-pointer items-center gap-2 text-sm text-ink sm:min-h-6"
+                      >
+                        <input
+                          class="accent-accent-strong focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                          type="radio"
+                          name="purchase-sport-mix"
+                          id="sport-subscription"
+                          value="subscription"
+                          checked
+                        />Регулярна підписка
+                      </label>
+                    </fieldset>
+                    <button
+                      class="mt-auto inline-flex min-h-[44px] w-full items-center justify-center rounded-btn border-0 bg-primary px-4 py-3 font-bold text-white transition-[background-color,transform] duration-[180ms] hover:-translate-y-px hover:bg-primary-hover active:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0 focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
                       type="submit"
                     >
                       Оформити підписку
@@ -581,7 +1013,7 @@
               </article>
             </li>
           </ul>
-          <p class="price-note">
+          <p class="mt-4 text-sm text-ink-muted">
             Набори, ваги та ціни наведені як приклад, пропозиція для макета.
           </p>
         </div>
@@ -599,7 +1031,7 @@
             alt="Шеф-кухар викладає мікрозелень на страву"
             width="1200"
             height="670"
-            loading="lazy"
+            loading="lazy" decoding="async"
           />
           <header class="business-copy">
             <h2 id="business-title">Для кафе та ресторанів</h2>
@@ -767,6 +1199,7 @@
             <label for="newsletter-email">Електронна пошта</label>
             <div class="newsletter-controls">
               <input
+                class="placeholder:text-placeholder"
                 id="newsletter-email"
                 name="email"
                 type="email"
@@ -791,69 +1224,271 @@
             Ваша щоденна порція зелені — за вашим графіком
           </h2>
           <p>Розрахуйте норму та оберіть підписку, яку легко змінювати.</p>
-          <a class="button button-light" href="#calculator"
-            >Розрахувати мою норму</a
+          <div
+            class="mx-auto flex w-full max-w-2xl flex-col gap-2 sm:flex-row sm:justify-center"
           >
+            <button
+              type="button"
+              class="inline-flex min-h-[44px] w-full items-center justify-center rounded-btn bg-primary px-6 py-3 text-[16px] font-semibold text-white transition-[background-color,transform] duration-[180ms] ease-in-out enabled:hover:-translate-y-px enabled:hover:bg-primary-hover active:translate-y-0 active:bg-dark focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none motion-reduce:enabled:hover:translate-y-0 sm:w-auto"
+            >
+              Розрахувати мою норму
+            </button>
+            <button
+              type="button"
+              disabled
+              class="inline-flex min-h-[44px] w-full items-center justify-center rounded-btn bg-primary px-6 py-3 text-[16px] font-semibold text-white transition-[background-color,transform] duration-[180ms] ease-in-out enabled:hover:-translate-y-px enabled:hover:bg-primary-hover active:translate-y-0 active:bg-dark focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transition-none motion-reduce:enabled:hover:translate-y-0 sm:w-auto"
+            >
+              Розрахувати мою норму
+            </button>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer" id="footer">
-      <div class="container">
-        <a class="brand footer-brand" href="index.html">
-          <img
-            class="brand-mark"
-            src="assets/images/logo-light.svg"
-            alt="Microgreen"
-            width="628"
-            height="80"
-          />
-        </a>
-        <div class="footer-columns">
-          <nav class="footer-column" aria-labelledby="footer-catalog-title">
-            <h2 id="footer-catalog-title">Каталог</h2>
-            <ul>
-              <li><a href="#sets">Готові набори</a></li>
-              <li><a href="#sets">Підписки</a></li>
-              <li><a href="#calculator">Калькулятор Smart</a></li>
+    <footer
+      id="footer"
+      class="bg-darkest pt-16 pb-6 text-white font-sans text-sm"
+    >
+      <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <a
+              class="inline-flex rounded-btn transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+              href="index.html"
+            >
+              <img
+                class="h-4 w-auto"
+                src="assets/images/logo-light.svg"
+                alt="Microgreen"
+                width="628"
+                height="80"
+              />
+            </a>
+            <p class="mt-4 max-w-xs text-sm leading-6 text-ink-on-dark-muted">
+              Вирощуємо живу мікрозелень під ваше замовлення та доставляємо за
+              гнучкою підпискою.
+            </p>
+          </div>
+
+          <nav aria-labelledby="footer-catalog-title">
+            <h2
+              id="footer-catalog-title"
+              class="mb-4 font-heading text-[14px] font-bold text-white"
+            >
+              Каталог
+            </h2>
+            <ul class="m-0 flex list-none flex-col gap-3 p-0">
+              <li>
+                <a
+                  class="inline-flex min-h-11 items-center text-ink-on-dark-muted transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus sm:min-h-6"
+                  href="#sets"
+                  >Готові набори</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-flex min-h-11 items-center text-ink-on-dark-muted sm:min-h-6 transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="#sets"
+                  >Підписки</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-flex min-h-11 items-center text-ink-on-dark-muted sm:min-h-6 transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="#calculator"
+                  >Калькулятор Smart</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-flex min-h-11 items-center text-ink-on-dark-muted sm:min-h-6 transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="#farm"
+                  >Про ферму</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-flex min-h-11 items-center text-ink-on-dark-muted sm:min-h-6 transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="#tracking-title"
+                  >Перевірити партію</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-flex min-h-11 items-center text-ink-on-dark-muted sm:min-h-6 transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="#business"
+                  >Для бізнесу</a
+                >
+              </li>
             </ul>
           </nav>
-          <nav class="footer-column" aria-labelledby="footer-farm-title">
-            <h2 id="footer-farm-title">Про ферму</h2>
-            <ul>
-              <li><a href="#farm">Як вирощуємо</a></li>
-              <li><a href="#tracking-title">Перевірити партію</a></li>
-              <li><a href="#knowledge">База знань</a></li>
+
+          <nav aria-labelledby="footer-support-title">
+            <h2
+              id="footer-support-title"
+              class="mb-4 font-heading text-[14px] font-bold text-white"
+            >
+              Кабінет і підтримка
+            </h2>
+            <ul class="m-0 flex list-none flex-col gap-3 p-0">
+              <li>
+                <a
+                  class="inline-flex min-h-11 items-center text-ink-on-dark-muted sm:min-h-6 transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="#subscription"
+                  >Моя підписка</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-flex min-h-11 items-center text-ink-on-dark-muted sm:min-h-6 transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="#orders"
+                  >Історія замовлень</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-flex min-h-11 items-center text-ink-on-dark-muted sm:min-h-6 transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="#addresses"
+                  >Адреси доставки</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-flex min-h-11 items-center text-ink-on-dark-muted sm:min-h-6 transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="#delivery"
+                  >Доставка й оплата</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-flex min-h-11 items-center text-ink-on-dark-muted sm:min-h-6 transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="#batch-complaint"
+                  >Скарга на номер партії</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-flex min-h-11 items-center text-ink-on-dark-muted sm:min-h-6 transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="#knowledge"
+                  >Поширені запитання</a
+                >
+              </li>
             </ul>
           </nav>
-          <nav class="footer-column" aria-labelledby="footer-account-title">
-            <h2 id="footer-account-title">Кабінет</h2>
-            <ul>
-              <li><a href="#subscription">Моя підписка</a></li>
-              <li><a href="#orders">Історія замовлень</a></li>
-              <li><a href="#addresses">Адреси доставки</a></li>
+
+          <section id="contacts" aria-labelledby="footer-contacts-title">
+            <h2
+              id="footer-contacts-title"
+              class="mb-4 font-heading text-[14px] font-bold text-white"
+            >
+              Контакти
+            </h2>
+            <address class="break-words not-italic text-sm leading-6 text-ink-on-dark-muted">
+              <p class="mb-2">м. Львів</p>
+              <p class="mb-2">
+                <a
+                  class="inline-flex min-h-11 items-center text-ink-on-dark-muted sm:min-h-6 transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="tel:+380000000000"
+                  >+380 00 000 00 00</a
+                >
+              </p>
+              <p>
+                <a
+                  class="inline-flex min-h-11 items-center text-ink-on-dark-muted sm:min-h-6 transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="mailto:hello@microgreen.example"
+                  >hello@microgreen.example</a
+                >
+              </p>
+            </address>
+            <ul class="mt-4 flex list-none gap-2 p-0">
+              <li>
+                <a
+                  class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full transition-colors duration-[180ms] hover:bg-white/10 hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="https://www.instagram.com/"
+                  aria-label="Microgreen в Instagram"
+                >
+                  <i class="fa-brands fa-instagram text-base" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full transition-colors duration-[180ms] hover:bg-white/10 hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="https://www.facebook.com/"
+                  aria-label="Microgreen у Facebook"
+                >
+                  <i class="fa-brands fa-facebook-f text-base" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full transition-colors duration-[180ms] hover:bg-white/10 hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="https://t.me/"
+                  aria-label="Microgreen у Telegram"
+                >
+                  <i class="fa-brands fa-telegram text-base" aria-hidden="true"></i>
+                </a>
+              </li>
             </ul>
-          </nav>
-          <nav class="footer-column" aria-labelledby="footer-support-title">
-            <h2 id="footer-support-title">Підтримка</h2>
-            <ul>
-              <li><a href="#contacts">Контакти</a></li>
-              <li><a href="#delivery">Доставка й оплата</a></li>
-              <li><a href="#batch-complaint">Скарга на номер партії</a></li>
-              <li><a href="#knowledge">Поширені запитання</a></li>
-            </ul>
-          </nav>
+          </section>
         </div>
-        <div class="footer-bottom">
-          <p><small>© 2026 Microgreen</small></p>
+
+        <div
+          class="mt-10 flex flex-col justify-between gap-4 border-t border-overlay-subtle pt-5 text-sm text-ink-on-dark-muted md:flex-row md:items-center"
+        >
+          <p class="m-0"><small>© 2026 Microgreen</small></p>
           <nav aria-label="Юридична інформація">
-            <ul>
-              <li><a href="#privacy">Політика конфіденційності</a></li>
-              <li><a href="#terms">Умови користування</a></li>
+            <ul class="m-0 flex list-none flex-wrap gap-x-5 gap-y-3 p-0">
+              <li>
+                <a
+                  class="inline-flex min-h-11 items-center text-ink-on-dark-muted sm:min-h-6 transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="#privacy"
+                  >Політика конфіденційності</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-flex min-h-11 items-center text-ink-on-dark-muted sm:min-h-6 transition-colors duration-[180ms] hover:text-accent focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus"
+                  href="#terms"
+                  >Умови користування</a
+                >
+              </li>
             </ul>
           </nav>
         </div>
       </div>
     </footer>
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuOpenIcon = document.getElementById("menu-open-icon");
+      const menuCloseIcon = document.getElementById("menu-close-icon");
+
+      const setMenuOpen = (isOpen) => {
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Закрити меню" : "Відкрити меню",
+        );
+        mobileMenu.classList.toggle("hidden", !isOpen);
+        menuOpenIcon.classList.toggle("hidden", isOpen);
+        menuCloseIcon.classList.toggle("hidden", !isOpen);
+      };
+
+      menuToggle.addEventListener("click", () => {
+        setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
+      });
+      mobileMenu.addEventListener("click", (event) => {
+        if (event.target.closest("a")) setMenuOpen(false);
+      });
+      document.addEventListener("keydown", (event) => {
+        if (
+          event.key === "Escape" &&
+          menuToggle.getAttribute("aria-expanded") === "true"
+        ) {
+          setMenuOpen(false);
+          menuToggle.focus();
+        }
+      });
+    </script>
   </body>
 </html>
