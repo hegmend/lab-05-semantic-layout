@@ -7,6 +7,7 @@
 ## Демо
 - GitHub Pages: https://hegmend.github.io/lab-05-semantic-layout/
 - Netlify: https://microgreen67.netlify.app
+- Vercel: https://microgreen-lviv.vercel.app
 - Репозиторій: https://github.com/hegmend/lab-05-semantic-layout
 
 ## Стек
