@@ -89,3 +89,11 @@ summary:focus-visible {
     animation: none;
   }
 }
+
+/* ЛР10: кольори Swiper під дизайн-систему (замість синього за замовчуванням) */
+.farm-swiper {
+  --swiper-theme-color: var(--color-accent-strong);
+  --swiper-pagination-bullet-inactive-color: #68736c;
+  --swiper-pagination-bullet-inactive-opacity: 0.4;
+  --swiper-pagination-bullet-size: 10px;
+}
