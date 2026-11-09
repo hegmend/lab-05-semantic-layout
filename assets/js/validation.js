@@ -29,14 +29,14 @@
 
   const ERRORS = {
     nameEmpty: "Введіть ім'я.",
-    nameShort: "Ім'я має містити щонайменше 2 символи.",
-    nameChars: "Використовуйте лише літери, пробіл, дефіс або апостроф.",
+    nameShort: "Ім'я — щонайменше 2 символи.",
+    nameChars: "Лише літери, пробіл, дефіс або апостроф.",
     emailEmpty: "Введіть електронну пошту.",
-    emailFormat: "Введіть коректну адресу, наприклад user@gmail.com.",
+    emailFormat: "Некоректний email, приклад: user@gmail.com",
     phoneEmpty: "Введіть номер телефону.",
-    phoneFormat: "Номер має бути у форматі +380XXXXXXXXX (9 цифр після +380).",
+    phoneFormat: "Формат +380XXXXXXXXX: 9 цифр після +380.",
     subjectEmpty: "Оберіть тему звернення.",
-    messageShort: `Повідомлення має містити щонайменше ${MESSAGE_MIN} символів.`,
+    messageShort: `Мінімум ${MESSAGE_MIN} символів у повідомленні.`,
     agreement: "Потрібна згода з політикою конфіденційності.",
   };
 
@@ -81,8 +81,7 @@
     input.classList.remove(...ERROR, ...SUCCESS);
     if (input.type !== "checkbox") input.classList.add(...NORMAL);
     input.setAttribute("aria-invalid", "false");
-    errorEl.textContent = "";
-    errorEl.classList.add("hidden");
+    errorEl.textContent = ""; // рядок під помилку зарезервовано (min-h-5) — без зсуву макета
     const ok = getOkIcon(input);
     if (ok) ok.classList.add("hidden");
   }
@@ -97,7 +96,6 @@
     input.setAttribute("aria-invalid", "true");
     const errorEl = getErrorEl(input);
     errorEl.textContent = message; // textContent — без вставки HTML
-    errorEl.classList.remove("hidden");
   }
 
   // Стан Success: зелена рамка та галочка.
