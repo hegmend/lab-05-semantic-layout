@@ -28,6 +28,11 @@ body {
   line-height: 1.55;
 }
 
+::selection {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
 .icon {
   color: var(--icon-color);
   font-size: var(--icon-size);
