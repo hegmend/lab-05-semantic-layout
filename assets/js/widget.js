@@ -40,6 +40,7 @@
   const MIN_DAILY_NORM = 20;
   const MAX_DAILY_NORM = 60;
   const MAX_GOALS = 2;
+  const touchedFields = new Set();
 
   const ACTIVITY_FACTORS = {
     low: 1.0,
@@ -69,14 +70,24 @@
   function setFieldError(input, errorElement, message) {
     errorElement.textContent = message;
     input.setAttribute("aria-invalid", message ? "true" : "false");
+    if (message) {
+      input.classList.remove("border-line-control", "bg-surface-control");
+      input.classList.add("border-red-600", "bg-red-50");
+    } else {
+      input.classList.remove("border-red-600", "bg-red-50");
+      input.classList.add("border-line-control", "bg-surface-control");
+    }
   }
 
   function getWeight() {
     const rawValue = weightInput.value.trim();
     const value = weightInput.valueAsNumber;
 
+    if (weightInput.validity.badInput) {
+      return { value: null, error: "Введіть число, наприклад 70." };
+    }
     if (rawValue === "") return { value: null, error: "Вкажіть вагу." };
-    if (!Number.isFinite(value)) return { value: null, error: "Введіть коректне число." };
+    if (!Number.isFinite(value)) return { value: null, error: "Введіть число, наприклад 70." };
     if (value < MIN_WEIGHT || value > MAX_WEIGHT) {
       return { value: null, error: `Вага має бути від ${MIN_WEIGHT} до ${MAX_WEIGHT} кг.` };
     }
@@ -88,8 +99,11 @@
     const rawValue = ageInput.value.trim();
     const value = ageInput.valueAsNumber;
 
+    if (ageInput.validity.badInput) {
+      return { factor: null, error: "Введіть число, наприклад 30." };
+    }
     if (rawValue === "") return { factor: null, error: "Вкажіть вік." };
-    if (!Number.isFinite(value)) return { factor: null, error: "Введіть коректний вік." };
+    if (!Number.isFinite(value)) return { factor: null, error: "Введіть число, наприклад 30." };
     if (!Number.isInteger(value)) return { factor: null, error: "Вік потрібно вказати повними роками." };
     if (value < MIN_AGE || value > MAX_AGE) {
       return { factor: null, error: `Вік має бути від ${MIN_AGE} до ${MAX_AGE} років.` };
@@ -137,8 +151,8 @@
     const goalsErrorMessage =
       goals.length > MAX_GOALS ? `Оберіть не більше ${MAX_GOALS} цілей.` : "";
 
-    setFieldError(weightInput, weightError, weight.error);
-    setFieldError(ageInput, ageError, age.error);
+    setFieldError(weightInput, weightError, touchedFields.has(weightInput.id) ? weight.error : "");
+    setFieldError(ageInput, ageError, touchedFields.has(ageInput.id) ? age.error : "");
     goalsError.textContent = goalsErrorMessage;
 
     if (weight.error || age.error || goalsErrorMessage || !Number.isFinite(activityFactor)) {
@@ -176,10 +190,16 @@
 
   function handleFormUpdate(event) {
     const target = event.target;
+    if (target === weightInput || target === ageInput) {
+      touchedFields.add(target.id);
+    }
+
     const isGoalCheckbox =
       target instanceof HTMLInputElement &&
       target.type === "checkbox" &&
       target.name === "goal";
+
+    if (isGoalCheckbox && event.type === "input") return;
 
     if (isGoalCheckbox && target.checked && getSelectedGoals().length > MAX_GOALS) {
       target.checked = false;
