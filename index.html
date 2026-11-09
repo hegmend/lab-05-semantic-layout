@@ -1669,6 +1669,161 @@
         </div>
       </section>
 
+      <!-- ЛР9: форма зворотного зв'язку з клієнтською валідацією (assets/js/validation.js) -->
+      <section
+        id="feedback"
+        aria-labelledby="feedback-title"
+        class="bg-surface-soft py-10 md:py-14"
+      >
+        <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+          <header class="mx-auto mb-6 max-w-3xl text-center">
+            <h2
+              id="feedback-title"
+              class="mb-2 font-heading text-2xl leading-[1.2] tracking-[-0.01em] text-ink-strong md:text-[32px]"
+            >
+              Напишіть нам
+            </h2>
+            <p class="mb-0 text-sm text-ink-muted">
+              Запитання про підписку, постачання для закладу чи номер партії —
+              відповімо протягом робочого дня.
+            </p>
+          </header>
+
+          <form
+            id="feedbackForm"
+            class="mx-auto grid max-w-3xl grid-cols-1 gap-x-5 gap-y-4 rounded-card bg-white p-5 shadow-card sm:p-8 md:grid-cols-2"
+            novalidate
+          >
+            <p class="m-0 text-sm text-ink-muted md:col-span-2">
+              Усі поля обов'язкові.
+            </p>
+
+            <div class="field grid content-start gap-1.5">
+              <label for="username" class="text-sm font-bold text-ink-strong">Ім'я</label>
+              <div class="relative">
+                <input
+                  id="username"
+                  name="username"
+                  type="text"
+                  autocomplete="name"
+                  maxlength="50"
+                  aria-describedby="usernameError"
+                  aria-invalid="false"
+                  class="field-input min-h-12 w-full rounded-btn border border-line-control bg-surface-control px-3 py-2 pr-10 text-base text-ink transition-[border-color,box-shadow] duration-200 hover:border-line-strong focus:border-accent-strong focus:outline-none focus-visible:ring-4 focus-visible:ring-focus/30 motion-reduce:transition-none"
+                />
+                <i class="field-ok fa-solid fa-check pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 text-green-700" aria-hidden="true"></i>
+              </div>
+              <p id="usernameError" class="field-error m-0 hidden text-sm text-red-700" aria-live="polite"></p>
+            </div>
+
+            <div class="field grid content-start gap-1.5">
+              <label for="email" class="text-sm font-bold text-ink-strong">Електронна пошта</label>
+              <div class="relative">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  inputmode="email"
+                  autocomplete="email"
+                  maxlength="100"
+                  aria-describedby="emailError"
+                  aria-invalid="false"
+                  class="field-input min-h-12 w-full rounded-btn border border-line-control bg-surface-control px-3 py-2 pr-10 text-base text-ink transition-[border-color,box-shadow] duration-200 hover:border-line-strong focus:border-accent-strong focus:outline-none focus-visible:ring-4 focus-visible:ring-focus/30 motion-reduce:transition-none"
+                />
+                <i class="field-ok fa-solid fa-check pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 text-green-700" aria-hidden="true"></i>
+              </div>
+              <p id="emailError" class="field-error m-0 hidden text-sm text-red-700" aria-live="polite"></p>
+            </div>
+
+            <div class="field grid content-start gap-1.5">
+              <label for="phone" class="text-sm font-bold text-ink-strong">Телефон</label>
+              <div class="relative">
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  aria-describedby="phoneHint phoneError"
+                  aria-invalid="false"
+                  class="field-input min-h-12 w-full rounded-btn border border-line-control bg-surface-control px-3 py-2 pr-10 text-base text-ink transition-[border-color,box-shadow] duration-200 hover:border-line-strong focus:border-accent-strong focus:outline-none focus-visible:ring-4 focus-visible:ring-focus/30 motion-reduce:transition-none"
+                />
+                <i class="field-ok fa-solid fa-check pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 text-green-700" aria-hidden="true"></i>
+              </div>
+              <p id="phoneHint" class="m-0 text-xs text-ink-muted">Формат: +380XXXXXXXXX</p>
+              <p id="phoneError" class="field-error m-0 hidden text-sm text-red-700" aria-live="polite"></p>
+            </div>
+
+            <div class="field grid content-start gap-1.5">
+              <label for="subject" class="text-sm font-bold text-ink-strong">Тема</label>
+              <div class="relative">
+                <select
+                  id="subject"
+                  name="subject"
+                  aria-describedby="subjectError"
+                  aria-invalid="false"
+                  class="field-input min-h-12 w-full rounded-btn border border-line-control bg-surface-control px-3 py-2 pr-10 text-base text-ink transition-[border-color,box-shadow] duration-200 hover:border-line-strong focus:border-accent-strong focus:outline-none focus-visible:ring-4 focus-visible:ring-focus/30 motion-reduce:transition-none"
+                >
+                  <option value="">Оберіть тему</option>
+                  <option value="subscription">Підписка та доставка</option>
+                  <option value="business">Постачання для закладу (B2B)</option>
+                  <option value="batch">Номер партії / якість</option>
+                  <option value="other">Інше</option>
+                </select>
+              </div>
+              <p id="subjectError" class="field-error m-0 hidden text-sm text-red-700" aria-live="polite"></p>
+            </div>
+
+            <div class="field grid content-start gap-1.5 md:col-span-2">
+              <label for="message" class="text-sm font-bold text-ink-strong">Повідомлення</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                maxlength="1000"
+                aria-describedby="messageCounter messageError"
+                aria-invalid="false"
+                class="field-input min-h-32 w-full resize-y rounded-btn border border-line-control bg-surface-control px-3 py-2 text-base text-ink transition-[border-color,box-shadow] duration-200 hover:border-line-strong focus:border-accent-strong focus:outline-none focus-visible:ring-4 focus-visible:ring-focus/30 motion-reduce:transition-none"
+              ></textarea>
+              <div class="flex flex-wrap items-start justify-between gap-x-4 gap-y-1">
+                <p id="messageError" class="field-error m-0 hidden text-sm text-red-700" aria-live="polite"></p>
+                <p id="messageCounter" class="m-0 ml-auto text-xs text-ink-muted">0 / 1000</p>
+              </div>
+            </div>
+
+            <div class="field grid gap-1.5 md:col-span-2">
+              <div class="flex items-start gap-3">
+                <input
+                  id="agreement"
+                  name="agreement"
+                  type="checkbox"
+                  aria-describedby="agreementError"
+                  aria-invalid="false"
+                  class="mt-0.5 h-5 w-5 shrink-0 cursor-pointer rounded accent-accent-strong focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus"
+                />
+                <label for="agreement" class="cursor-pointer text-sm text-ink">
+                  Погоджуюся з
+                  <a href="#footer" class="font-semibold text-accent-strong underline underline-offset-2 hover:text-primary focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus">політикою конфіденційності</a>
+                  та обробкою персональних даних.
+                </label>
+              </div>
+              <p id="agreementError" class="field-error m-0 hidden text-sm text-red-700" aria-live="polite"></p>
+            </div>
+
+            <div class="md:col-span-2 md:flex md:justify-center">
+              <button
+                id="submitBtn"
+                type="submit"
+                class="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-btn bg-primary px-8 py-3 text-base font-semibold text-white transition-[background-color,box-shadow] duration-200 hover:bg-primary-hover hover:shadow-card focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none md:w-auto"
+              >
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                Надіслати
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
       <section
         class="bg-dark py-10 text-center md:py-14"
         aria-labelledby="final-cta-title"
@@ -1895,6 +2050,46 @@
         </div>
       </div>
     </footer>
+    <!-- ЛР9: модальне вікно успіху (імітація надсилання — бекенд не підключено) -->
+    <div
+      id="successModal"
+      class="fixed inset-0 z-[100] hidden items-center justify-center bg-darkest/70 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="successModalTitle"
+      aria-describedby="successModalText"
+    >
+      <div
+        class="w-full max-w-md rounded-card bg-white p-6 text-center shadow-card sm:p-8"
+      >
+        <span
+          class="mx-auto mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-surface-tint text-2xl text-accent-strong"
+          aria-hidden="true"
+          ><i class="fa-solid fa-check"></i
+        ></span>
+        <h2
+          id="successModalTitle"
+          class="mb-2 font-heading text-xl font-bold text-ink-strong"
+        >
+          Дякуємо, <span id="successName"></span>!
+        </h2>
+        <p id="successModalText" class="mb-2 text-sm text-ink">
+          Форма успішно пройшла клієнтську валідацію.
+        </p>
+        <p class="mb-6 text-xs text-ink-muted">
+          Демонстрація успішного надсилання: сервер обробки форми не
+          підключено, дані нікуди не передаються.
+        </p>
+        <button
+          id="closeModalBtn"
+          type="button"
+          class="inline-flex min-h-12 w-full items-center justify-center rounded-btn bg-primary px-6 py-3 text-base font-semibold text-white transition-[background-color,box-shadow] duration-200 hover:bg-primary-hover focus-visible:outline-[3px] focus-visible:outline-offset-4 focus-visible:outline-focus motion-reduce:transition-none"
+        >
+          Закрити
+        </button>
+      </div>
+    </div>
+    <script src="assets/js/validation.js" defer></script>
     <script src="https://weatherwidget.io/js/widget.min.js" async></script>
     <script>
       const menuToggle = document.getElementById("menu-toggle");
