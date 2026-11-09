@@ -22,6 +22,7 @@ css/style.css     — кастомні стилі
 assets/images/    — зображення (webp, svg)
 assets/icons/     — іконки переваг
 assets/js/validation.js — валідація форми зворотного зв'язку
+assets/js/main.js — ініціалізація Swiper, Fancybox, Typed.js
 ```
 
 ## Форма зворотного зв'язку (ЛР №9)
@@ -39,6 +40,12 @@ assets/js/validation.js — валідація форми зворотного �
 | Згода | checked |
 
 Бекенд не підключено: після валідації показується демонстраційне вікно успіху.
+
+## JS-плагіни (ЛР №10)
+Підключені через CDN jsDelivr: CSS — у `<head>`, JS — у кінці `<body>`, ініціалізація в `assets/js/main.js` після `DOMContentLoaded`.
+- **Swiper.js 11** — слайдер «Ферма зсередини» (`#gallery`): 6 слайдів, loop, autoplay 3,5 с з паузою при наведенні, стрілки, пагінація, брейкпоінти 1 / 2 / 3 слайди.
+- **Fancybox v5** — ті самі фото відкриваються альбомом `data-fancybox="farm-gallery"`: fade, зум, мініатюри, свайпи.
+- **Typed.js 2** — анімований слоган у Hero; за `prefers-reduced-motion` анімації вимикаються.
 
 ## Запуск локально
 Відкрити `index.html` у браузері або через розширення Live Server у VS Code.
