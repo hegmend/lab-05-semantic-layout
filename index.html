@@ -90,6 +90,9 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
       />
     </noscript>
+    <!-- ЛР10: CSS плагінів через CDN (jsDelivr) — у <head>, щоб уникнути FOUC -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -240,8 +243,10 @@
           class="mx-auto grid w-full max-w-site grid-cols-1 items-center gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8"
         >
           <header class="max-w-2xl">
-            <p class="mb-3 text-sm font-bold text-accent">
-              Міська вертикальна ферма
+            <p class="mb-3 min-h-5 text-sm font-bold text-accent">
+              <!-- ЛР10: Typed.js — анімований слоган; статичний текст для скрінрідерів і без JS -->
+              <span class="sr-only">Міська вертикальна ферма</span>
+              <span id="typed-text" aria-hidden="true">Міська вертикальна ферма</span>
             </p>
             <h1
               id="hero-title"
@@ -415,6 +420,170 @@
           <p class="mt-2 text-sm text-ink-muted">
             Ілюстративне відео, згенероване за допомогою ШІ (Google Gemini).
           </p>
+        </div>
+      </section>
+
+      <!-- ЛР10: інтерактивна секція — слайдер Swiper.js + альбом Fancybox v5 (assets з ЛР №3) -->
+      <section
+        id="gallery"
+        aria-labelledby="gallery-title"
+        class="bg-surface-soft py-10 md:py-14"
+      >
+        <div class="mx-auto max-w-site px-4 sm:px-6 lg:px-8">
+          <header class="mb-6 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2
+                id="gallery-title"
+                class="mb-2 font-heading text-2xl leading-[1.2] tracking-[-0.01em] text-ink-strong md:text-[32px]"
+              >
+                Ферма зсередини
+              </h2>
+              <p class="mb-0 max-w-2xl text-sm text-ink-muted">
+                Стелажі з лотками, набори та постачання для кафе. Натисніть на
+                фото, щоб відкрити галерею на весь екран.
+              </p>
+            </div>
+            <div class="flex gap-2" aria-label="Керування слайдером">
+              <button type="button" class="gallery-prev inline-flex h-11 w-11 items-center justify-center rounded-full border border-line-strong bg-white text-ink-strong transition-colors duration-200 hover:border-accent-strong hover:text-accent-strong focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus" aria-label="Попередній слайд">
+                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+              </button>
+              <button type="button" class="gallery-next inline-flex h-11 w-11 items-center justify-center rounded-full border border-line-strong bg-white text-ink-strong transition-colors duration-200 hover:border-accent-strong hover:text-accent-strong focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus" aria-label="Наступний слайд">
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </header>
+
+          <div class="swiper farm-swiper pb-10">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide h-auto">
+                <a
+                  href="assets/images/farm-interior.webp"
+                  data-fancybox="farm-gallery"
+                  data-caption="Вертикальна ферма — Лотки ростуть на багаторівневих стелажах під фітолампами"
+                  class="group block h-full overflow-hidden rounded-card bg-white shadow-card focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus"
+                >
+                  <div class="aspect-[4/3] overflow-hidden">
+                    <img
+                      src="assets/images/farm-interior.webp"
+                      alt="Стелажі вертикальної ферми"
+                      loading="lazy"
+                      class="h-full w-full cursor-zoom-in object-cover transition-transform duration-300 group-hover:scale-[1.04] motion-reduce:transition-none"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <h3 class="mb-1 font-heading text-base font-bold text-ink-strong">Вертикальна ферма</h3>
+                    <p class="m-0 text-sm text-ink-muted">Лотки ростуть на багаторівневих стелажах під фітолампами</p>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide h-auto">
+                <a
+                  href="assets/images/hero.webp"
+                  data-fancybox="farm-gallery"
+                  data-caption="Живий лоток — Зрізаємо в день доставки — зелень приїжджає живою"
+                  class="group block h-full overflow-hidden rounded-card bg-white shadow-card focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus"
+                >
+                  <div class="aspect-[4/3] overflow-hidden">
+                    <img
+                      src="assets/images/hero.webp"
+                      alt="Живий лоток мікрозелені"
+                      loading="lazy"
+                      class="h-full w-full cursor-zoom-in object-cover transition-transform duration-300 group-hover:scale-[1.04] motion-reduce:transition-none"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <h3 class="mb-1 font-heading text-base font-bold text-ink-strong">Живий лоток</h3>
+                    <p class="m-0 text-sm text-ink-muted">Зрізаємо в день доставки — зелень приїжджає живою</p>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide h-auto">
+                <a
+                  href="assets/images/set-daily-mix.webp"
+                  data-fancybox="farm-gallery"
+                  data-caption="Щоденний мікс — Базовий набір для щоденної норми"
+                  class="group block h-full overflow-hidden rounded-card bg-white shadow-card focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus"
+                >
+                  <div class="aspect-[4/3] overflow-hidden">
+                    <img
+                      src="assets/images/set-daily-mix.webp"
+                      alt="Набір «Щоденний мікс»"
+                      loading="lazy"
+                      class="h-full w-full cursor-zoom-in object-cover transition-transform duration-300 group-hover:scale-[1.04] motion-reduce:transition-none"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <h3 class="mb-1 font-heading text-base font-bold text-ink-strong">Щоденний мікс</h3>
+                    <p class="m-0 text-sm text-ink-muted">Базовий набір для щоденної норми</p>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide h-auto">
+                <a
+                  href="assets/images/set-family-mix.webp"
+                  data-fancybox="farm-gallery"
+                  data-caption="Сімейний мікс — Більший об'єм для родини з регулярною доставкою"
+                  class="group block h-full overflow-hidden rounded-card bg-white shadow-card focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus"
+                >
+                  <div class="aspect-[4/3] overflow-hidden">
+                    <img
+                      src="assets/images/set-family-mix.webp"
+                      alt="Набір «Сімейний мікс»"
+                      loading="lazy"
+                      class="h-full w-full cursor-zoom-in object-cover transition-transform duration-300 group-hover:scale-[1.04] motion-reduce:transition-none"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <h3 class="mb-1 font-heading text-base font-bold text-ink-strong">Сімейний мікс</h3>
+                    <p class="m-0 text-sm text-ink-muted">Більший об'єм для родини з регулярною доставкою</p>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide h-auto">
+                <a
+                  href="assets/images/set-kitchen-mix.webp"
+                  data-fancybox="farm-gallery"
+                  data-caption="Кухонний мікс — Мікрозелень для салатів, супів і подачі страв"
+                  class="group block h-full overflow-hidden rounded-card bg-white shadow-card focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus"
+                >
+                  <div class="aspect-[4/3] overflow-hidden">
+                    <img
+                      src="assets/images/set-kitchen-mix.webp"
+                      alt="Набір «Кухонний мікс»"
+                      loading="lazy"
+                      class="h-full w-full cursor-zoom-in object-cover transition-transform duration-300 group-hover:scale-[1.04] motion-reduce:transition-none"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <h3 class="mb-1 font-heading text-base font-bold text-ink-strong">Кухонний мікс</h3>
+                    <p class="m-0 text-sm text-ink-muted">Мікрозелень для салатів, супів і подачі страв</p>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide h-auto">
+                <a
+                  href="assets/images/business-kitchen.webp"
+                  data-fancybox="farm-gallery"
+                  data-caption="Для бізнесу — Постачання для кафе та ресторанів Львова"
+                  class="group block h-full overflow-hidden rounded-card bg-white shadow-card focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus"
+                >
+                  <div class="aspect-[4/3] overflow-hidden">
+                    <img
+                      src="assets/images/business-kitchen.webp"
+                      alt="Мікрозелень на кухні ресторану"
+                      loading="lazy"
+                      class="h-full w-full cursor-zoom-in object-cover transition-transform duration-300 group-hover:scale-[1.04] motion-reduce:transition-none"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <h3 class="mb-1 font-heading text-base font-bold text-ink-strong">Для бізнесу</h3>
+                    <p class="m-0 text-sm text-ink-muted">Постачання для кафе та ресторанів Львова</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-pagination !bottom-0"></div>
+          </div>
         </div>
       </section>
 
@@ -2090,6 +2259,11 @@
       </div>
     </div>
     <script src="assets/js/validation.js" defer></script>
+    <!-- ЛР10: JS плагінів через CDN — в кінці body; ініціалізація в assets/js/main.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="assets/js/main.js"></script>
     <script src="https://weatherwidget.io/js/widget.min.js" async></script>
     <script>
       const menuToggle = document.getElementById("menu-toggle");
