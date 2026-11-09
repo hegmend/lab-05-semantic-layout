@@ -1,6 +1,6 @@
 /**
  * Microgreen — ініціалізація JS-плагінів (ЛР №10).
- * Бібліотеки підключено через CDN jsDelivr в кінці <body>:
+ * Бібліотеки підключено через CDN jsDelivr в кінці <body> з атрибутом defer:
  *   Swiper.js 11, Fancybox v5 (@fancyapps/ui), Typed.js 2.
  * Уся ініціалізація — після побудови DOM (DOMContentLoaded).
  */
@@ -80,5 +80,35 @@ document.addEventListener("DOMContentLoaded", function () {
       loop: true,
       smartBackspace: true,
     });
+  }
+
+  /* ---------- 4. Віджет погоди — відкладене завантаження (ЛР №12) ---------- */
+  // Сторонній скрипт weatherwidget.io підвантажується лише тоді, коли блок
+  // наближається до екрана, і не впливає на швидкість першого завантаження.
+  const weatherLink = document.querySelector(".weatherwidget-io");
+  if (weatherLink) {
+    const loadWeatherWidget = function () {
+      if (document.getElementById("weatherwidget-io-js")) return;
+      const script = document.createElement("script");
+      script.id = "weatherwidget-io-js";
+      script.src = "https://weatherwidget.io/js/widget.min.js";
+      script.async = true;
+      document.body.appendChild(script);
+    };
+
+    if ("IntersectionObserver" in window) {
+      const weatherObserver = new IntersectionObserver(
+        function (entries) {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            weatherObserver.disconnect();
+            loadWeatherWidget();
+          }
+        },
+        { rootMargin: "400px 0px" },
+      );
+      weatherObserver.observe(weatherLink);
+    } else {
+      loadWeatherWidget();
+    }
   }
 });

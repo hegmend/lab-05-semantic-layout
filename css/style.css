@@ -1,3 +1,38 @@
+/* ЛР12: шрифти з дизайн-системи підключено локально (variable woff2, кирилиця + латиниця).
+   font-display: swap — текст видно одразу, без очікування шрифту. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../assets/fonts/inter-cyrillic.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../assets/fonts/inter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url("../assets/fonts/manrope-cyrillic.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url("../assets/fonts/manrope-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   color-scheme: light;
   --color-primary: #347f00;
@@ -7,7 +42,6 @@
   --color-focus: #528b3d;
   --font-primary: "Inter", system-ui, sans-serif;
   --font-size-md: 14px;
-  --font-weight-icon: 900;
   --spacing-1: 4px;
   --transition-fast: 0.18s;
   --icon-size: var(--font-size-md);
@@ -38,6 +72,15 @@ body {
   font-size: var(--icon-size);
 }
 
+/* ЛР12: вбудовані SVG-іконки (замість шрифту Font Awesome) успадковують колір і розмір тексту */
+.ico {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  vertical-align: -0.125em;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -65,13 +108,15 @@ summary:focus-visible {
   display: none;
 }
 
+/* ЛР12: шеврон намальовано SVG-маскою — іконковий шрифт Font Awesome більше не потрібен */
 .faq-list summary::after {
-  content: "\f078";
-  color: var(--color-accent-strong);
-  font-family: "Font Awesome 6 Free";
-  font-size: var(--icon-size);
-  font-weight: var(--font-weight-icon);
-  line-height: 1;
+  content: "";
+  flex-shrink: 0;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-color: var(--color-accent-strong);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z'/%3E%3C/svg%3E") center / contain no-repeat;
   transition: transform var(--transition-fast) ease;
 }
 
@@ -96,4 +141,42 @@ summary:focus-visible {
   --swiper-pagination-bullet-inactive-color: #68736c;
   --swiper-pagination-bullet-inactive-opacity: 0.4;
   --swiper-pagination-bullet-size: 10px;
+}
+
+/* ЛР12 (Accessibility, target-size): точка пагінації лишається 10 px,
+   але зона натискання — 24 × 24 px (WCAG 2.2, критерій 2.5.8) */
+.farm-swiper .swiper-pagination-bullet {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin: 0 2px !important;
+  background: transparent;
+  opacity: 1;
+}
+
+.farm-swiper .swiper-pagination-bullet::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: var(--swiper-pagination-bullet-inactive-color);
+  opacity: 0.55;
+}
+
+.farm-swiper .swiper-pagination-bullet-active::after {
+  background: var(--swiper-theme-color);
+  opacity: 1;
+}
+
+/* ЛР12: мінімальна розкладка слайдера до завантаження CSS Swiper з CDN (без стрибка макета) */
+.farm-swiper {
+  overflow: hidden;
+}
+
+.farm-swiper .swiper-wrapper {
+  display: flex;
+}
+
+.farm-swiper .swiper-slide {
+  flex-shrink: 0;
 }
